@@ -1,0 +1,19 @@
+.buttonDelete {
+    background-color: #6c6c6c;
+    border-radius: 8px;
+    transition-duration: 0.4s;
+    font-size: 15px;
+    color: white;
+    height: 40px;
+    width: 20%;
+    margin: auto;
+}
+
+.displayProduct{
+    display: flex;
+    justify-content: space-around;
+}
+.link{
+    width: 20%;
+    height: 40px;
+}

@@ -1,6 +1,7 @@
-import {DELETE_PRODUCT} from "../action.types/actionTypes";
 import {useDispatch} from "react-redux";
 import {Link} from "react-router-dom";
+import {fetchDelete} from "../../features/product/productSlice";
+import './product.css'
 
 export default function Product({product}) {
     const dispatch = useDispatch();
@@ -9,33 +10,36 @@ export default function Product({product}) {
         // eslint-disable-next-line no-restricted-globals
         const confirmDelete = confirm('Delete?')
         if (confirmDelete === true) {
-            return fetchDelete(id)
+            return dispatch(fetchDelete(id))
         } else if (confirmDelete === false) {
             return alert('Product did not delete')
         }
     }
-    const fetchDelete = async (id) => {
-        await fetch(`http://localhost:8888/delete-todo/${id}`, {
-            method: 'DELETE'
-        })
-        dispatch({type: DELETE_PRODUCT, payload: id})
-        alert('Product deleted')
-    }
-
 
     return (
-        <div key={product.id}>
+        <div
+            key={product.id}>
             <h4>
                 {product.title}
             </h4>
             <p>{product.description}</p>
             <span>Created at: {new Date(product.createdAt).toLocaleString()}</span>
             <br/>
-            <button onClick={() => {
-                deleteConfirm(product.id)
-            }}>delete
-            </button>
-            <Link to={`/${product.id}`}> Open full </Link>
+            <div className='displayProduct'>
+                <button
+                    className='buttonDelete'
+                    onClick={() => {
+                        deleteConfirm(product.id)
+                    }}>delete
+                </button>
+
+                    <Link to={`/${product.id}`}>
+                        Open Full
+                    </Link>
+
+
+
+            </div>
             <hr/>
         </div>
     )

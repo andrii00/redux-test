@@ -1,0 +1,22 @@
+.input {
+    border-style: none;
+    border-bottom: 2px solid #282c34;
+    width: 50%;
+    height: 30px;
+    margin-top: 5px;
+}
+
+.width70 {
+    width: 80%;
+    margin: auto;
+}
+.button{
+    margin-top: 10px;
+    background-color: #6c6c6c;
+    border-radius: 8px;
+    transition-duration: 0.4s;
+    font-size: 15px;
+    color: white;
+    height: 40px;
+    width: 15%;
+}
